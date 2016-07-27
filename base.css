@@ -1,0 +1,63 @@
+html{
+	background: url("images/bg.jpg") no-repeat center center fixed;
+	-webkits-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size: cover;
+}
+
+body{
+	position: relative;
+}
+
+.center {
+  width: 30%;
+  height: 40%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  border: .5em solid #fffff8;
+  padding:2em;
+  text-align: center;
+  line-height: 100%;
+}
+
+#headshot{
+	display: block;
+	margin: auto;
+	border-radius: 50%;
+	width:10em;
+	height: 10em;
+
+}
+
+#description{
+	text-align: center;
+	margin-top: 3em;
+	color: #fffff8;
+}
+
+#links{
+	list-style-type: none;
+	position: absolute;
+	bottom: 0;
+	padding:none;
+	color: white;
+	top: 90%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%); 
+
+
+}
+
+#links li{
+	float: left;
+	margin: 0 .5em 0 0;
+
+
+}
+#links p{
+	
+}
