@@ -1,4 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html{
 	background: url("images/bg.jpg") no-repeat center center fixed;
@@ -6,24 +61,35 @@ html{
 	-moz-background-size:cover;
 	-o-background-size:cover;
 	background-size: cover;
+	padding:none;
+	overflow-y: hidden;
 }
 
 body{
 	position: relative;
 }
 
+h1{
+	font-family: 'Raleway';
+	font-weight: 200;
+	font-size: 3em;
+	color:#555555;
+	margin: .7em 0 0 0;
+	display: inline-block;
+}
+
 .center {
-  width: 30%;
-  height: 45%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+  width: 100%;
+	max-width: 475px;
+  margin: 0 auto;
   border: .5em solid #fffff8;
-  padding:2em;
+  padding:2em 2em 1em 2em;
   text-align: center;
   line-height: 100%;
 	overflow: hidden;
+	background-color: #fffff8;
+	opacity: .85;
+	border-radius: 3px;
 }
 
 #headshot{
@@ -37,31 +103,37 @@ body{
 
 #description{
 	text-align: center;
-	margin-top: 2em;
-	color: #fffff8;
+	margin: 2.3em 0 2em 0;
+	color: #555555;
 	font-family: 'Raleway';
 }
 
 #links{
 	list-style-type: none;
-	position: absolute;
-	bottom: 0;
+	display: inline-block;
 	padding-left: 0;
-	color: white;
-	top: 78.5%;  /* position the top  edge of the element at the middle of the parent */
-  left: 62.5%; /* position the left edge of the element at the middle of the parent */
-
-  transform: translate(-50%, -50%);
-
-
+	margin: 0;
 }
 
 #links li{
 	float: left;
-	margin: 0 .5em 0 0;
+	margin: 0 .25em;
 
 
 }
-a{
-	color:inherit;
+a i{
+	color:#555555;
+	font-size: em;
+	opacity: .5;
+	transition: .3s ease;
+	-webkit-transition: .3s ease;
+}
+a i:hover{
+	opacity: 1;
+}
+.animation{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
 }
