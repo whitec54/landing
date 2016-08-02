@@ -1,4 +1,3 @@
-<!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
 	<title>Cam White</title>
@@ -7,10 +6,15 @@
 
 	<script src="https://d3js.org/d3.v3.js" charset="utf-8"></script>
 	<script src="https://use.fontawesome.com/c17d82b499.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="main">
-	<div class="center">
+<div id="app" class="main">
+
+
+	<div v-show="!showEmail" class="center">
+
 		<img id="headshot" src="images/hs.jpg"/>
 		<h1>Cameron White</h1>
 		<p id="description"> Hi, I'm a growing software developer and a Computer Science student at the University of Michigan. I like making things for people to use, going places I haven't been, and Reubens.</p>
@@ -19,10 +23,69 @@
 				<li><a target="_blank" href="https://github.com/whitec54"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a></li>
 				<li><a target="_blank" href="https://stackoverflow.com/users/6610245/cameron-white"><i class="fa fa-stack-overflow fa-2x" aria-hidden="true"></i></a></li>
 				<li><a target="_blank" href="https://medium.com/@cameronscwhite"><i class="fa fa-medium fa-2x" aria-hidden="true"></i></a></li>
-				<li><a target="_blank" href=""><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a></li>
+				<li><a @click="toggleEmail"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a></li>
 		</ul>
+		
+	</div>
+
+
+	<div id="emailForm" v-show="showEmail" class="center">
+
+		<input v-model="name" placeholder="Name">
+		<input v-model="email" placeholder="Email Address">
+		<input v-model="subject" placeholder="Subject">
+
+		<textarea v-model="body" placeholder="Message"> </textarea>
+		<button id="left" @click="toggleEmail">back</button>
+		<button id="right" @click="sendEmail">send</button>
+		
+
 	</div>
 </div>
+<script>
+
+	var display = new Vue({
+		el:"#app",
+
+		data:{
+			showEmail: false,
+			email:"",
+			body:"",
+			name:"",
+			subject:"",
+		},
+
+		methods:{
+			toggleEmail: function(){
+				this.showEmail = !this.showEmail;
+				console.log(this.showEmail)
+			},
+			sendEmail: function(){
+				$.ajax({
+			        url: "//formspree.io/cameronscwhite@gmail.com", 
+			        method: "POST",
+			        data: {
+			        	name: this.name,
+			        	subject: this.subject,
+			        	email: this.email,
+			        	message: this.body,
+			        },
+			        dataType: "json"
+		        });
+
+		        this.$emit("email.sent");
+   			}
+		},
+
+		events:{
+			"email.sent": function(){
+				this.toggleEmail();
+			}
+		}
+	});
+
+</script>
 <script src="main.js"></script>
+
 </body>
 </html>

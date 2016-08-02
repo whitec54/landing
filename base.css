@@ -77,7 +77,7 @@ h1{
 	margin: .7em 0 0 0;
 	display: inline-block;
 }
-#main{
+.main{
 	padding-top: 10%;
 }
 .center {
@@ -138,4 +138,43 @@ a i:hover{
   top:0;
   left:0;
   z-index: -1;
+}
+
+#emailForm input{
+	width:100%;
+	border:none;
+	margin-bottom: 15px;
+	color: #555555;
+	border-bottom: 1px solid #555555;
+}
+
+#emailForm input:focus{
+	outline:none;
+	outline-bottom-color:#555555;
+}
+
+#emailForm textarea{
+	display: block;
+	width:100%;
+	resize:none;
+	height:100px;
+	margin-bottom: 15px;
+}
+
+#emailForm textarea:focus{
+	outline-color: #555555
+}
+
+#emailForm button{
+	padding:7px 15px;
+	border: 2px solid #555555;
+	border-radius: 4px;
+	background: none;
+}
+
+#left{
+	float:left;
+}
+#right{
+	float:right;
 }
