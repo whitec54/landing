@@ -32,6 +32,8 @@ var cleared = false;
 
 d3.select("body").on("mousemove", function() {
   var p1 = d3.mouse(this);
+  root.x = p1[0];
+  root.y = p1[1];
 
   force.resume();
 });

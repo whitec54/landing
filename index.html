@@ -25,67 +25,28 @@
 				<li><a target="_blank" href="https://medium.com/@cameronscwhite"><i class="fa fa-medium fa-2x" aria-hidden="true"></i></a></li>
 				<li><a @click="toggleEmail"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a></li>
 		</ul>
-		
+
 	</div>
 
 
 	<div id="emailForm" v-show="showEmail" class="center">
+
 
 		<input v-model="name" placeholder="Name">
 		<input v-model="email" placeholder="Email Address">
 		<input v-model="subject" placeholder="Subject">
 
 		<textarea v-model="body" placeholder="Message"> </textarea>
-		<button id="left" @click="toggleEmail">back</button>
-		<button id="right" @click="sendEmail">send</button>
-		
+		<button v-show="!emailSent"id="left" @click="toggleEmail">back</button>
+    <button v-show="emailSent" id="right" @click="toggleEmail">Back</button>
+    <p v-show="emailSent">Email Sent!</p>
+		<button v-show="!emailSent"id="right" @click="sendEmail">send</button>
+
 
 	</div>
 </div>
-<script>
-
-	var display = new Vue({
-		el:"#app",
-
-		data:{
-			showEmail: false,
-			email:"",
-			body:"",
-			name:"",
-			subject:"",
-		},
-
-		methods:{
-			toggleEmail: function(){
-				this.showEmail = !this.showEmail;
-				console.log(this.showEmail)
-			},
-			sendEmail: function(){
-				$.ajax({
-			        url: "//formspree.io/cameronscwhite@gmail.com", 
-			        method: "POST",
-			        data: {
-			        	name: this.name,
-			        	subject: this.subject,
-			        	email: this.email,
-			        	message: this.body,
-			        },
-			        dataType: "json"
-		        });
-
-		        this.$emit("email.sent");
-   			}
-		},
-
-		events:{
-			"email.sent": function(){
-				this.toggleEmail();
-			}
-		}
-	});
-
-</script>
-<script src="main.js"></script>
+<script src="js/email.js"></script>
+<script src="js/node.js"></script>
 
 </body>
 </html>

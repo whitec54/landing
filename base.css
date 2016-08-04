@@ -55,6 +55,12 @@ table {
   box-sizing: border-box;
 }
 
+@media only screen and (min-width: 768px) {
+    .animation {
+        display: none;
+    }
+}
+
 html{
 	background: url("images/bg.jpg") no-repeat center center fixed;
 	-webkits-background-size: cover;
@@ -74,8 +80,8 @@ h1{
 	font-weight: 200;
 	font-size: 3em;
 	color:#555555;
-	margin: .7em 0 0 0;
-	display: inline-block;
+	margin: .5em 0 0 0;
+	line-height: .9;
 }
 .main{
 	padding-top: 10%;
@@ -105,7 +111,7 @@ h1{
 
 #description{
 	text-align: center;
-	margin: 2.3em 0 2em 0;
+	margin: 2em 0;
 	color: #555555;
 	font-family: 'Raleway';
 }
@@ -170,6 +176,12 @@ a i:hover{
 	border: 2px solid #555555;
 	border-radius: 4px;
 	background: none;
+}
+
+#emailForm p{
+  text-align: left;
+  padding: 7px;
+  font-family: Arial;
 }
 
 #left{
